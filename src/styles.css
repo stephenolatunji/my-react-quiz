@@ -1,0 +1,31 @@
+.card{
+    display: flex;
+    justify-content: center;
+    margin: 60px;
+}
+
+#nav{
+    background: coral;
+    height: 80px;
+    font-family: monospace;
+    color: #fff;
+    font-size: 25px;
+}
+
+#option{
+    padding: 15px;
+    border: 2px solid #f36;
+    margin: 10px;
+    border-radius: 30px;
+    background: rgb(106, 240, 229);
+}
+#option:hover{
+    background: crimson;
+    cursor: pointer;
+}
+
+#question{
+    margin: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}

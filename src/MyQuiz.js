@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Questionnaire from '../Questionnaire';
-import Questions from './Questions';
-import Result from './Result';
+import Questionnaire from './Questionnaire';
+import Questions from './Components/Questions';
+import Result from './Components/Result';
 
 
 
@@ -48,10 +48,22 @@ class MyQuiz extends Component {
     render() {
 
         return (
-            <div className="">
-                {this.displayContent()}
+            <div>
+
+                <nav className="navbar sticky-top" id="nav">McKorr Quiz App</nav>
+                <div className="container">
+                    <div className="card">
+                        <div className="card-header">
+                            <h1>How Well Do You Know Geography?</h1>
+                        </div>
+                        <div>{this.displayContent()}</div>
+                        <div className="card-footer text-muted">Stephen Olatunji</div>
+                    </div>
+                </div>
             </div>
+            
         )
     }
 }
 export default MyQuiz;
+ 

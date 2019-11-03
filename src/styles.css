@@ -1,7 +1,8 @@
 .card{
     display: flex;
+    width: 50%;
     justify-content: center;
-    margin: 60px;
+    margin: auto;
 }
 
 #nav{

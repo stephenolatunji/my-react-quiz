@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Questionnaire from './Questionnaire';
 import Questions from './Components/Questions';
 import Result from './Components/Result';
+import { Container, Menu, Card, Button } from 'semantic-ui-react';
+
+
 
 
 
@@ -16,7 +19,8 @@ class MyQuiz extends Component {
         }
         this.displayContent = this.displayContent.bind(this);
         this.scoreQuestion = this.scoreQuestion.bind(this);
-
+        this.replayGame = this.replayGame.bind(this);
+       
     }
 
     displayContent() {
@@ -24,13 +28,22 @@ class MyQuiz extends Component {
             return <Questions content={this.state.questionArray[this.state.questionIndex]} scoreQuestion={this.scoreQuestion} />
         }
         return (
-            <Result scorePoint={this.state.scorePoint} />
+            <div>
+                <Result scorePoint={this.state.scorePoint} />  
+            </div> 
         )
-    }
+    };
+
+    replayGame(){
+        this.setState({
+            questionIndex: 0,
+            questionArray: Questionnaire(),
+            scorePoint: 0
+        })
+    };
+
 
     scoreQuestion(value) {
-        console.log('score is', value)
-
         let question = this.state.questionArray[this.state.questionIndex];
         this.setState((state) => {
 
@@ -43,27 +56,33 @@ class MyQuiz extends Component {
             })
 
         }
-    }
+    };
 
     render() {
 
         return (
             <div>
-
-                <nav className="navbar sticky-top" id="nav">McKorr Quiz App</nav>
-                <div className="container">
-                    <div className="card">
-                        <div className="card-header">
-                            <h1>How Well Do You Know Geography?</h1>
-                        </div>
-                        <div>{this.displayContent()}</div>
-                        <div className="card-footer text-muted">Stephen Olatunji</div>
+                <Menu inverted color='teal'>
+                    <div>
+                    <h3>Mckorr Geography Quiz</h3>
                     </div>
-                </div>
+                </Menu>
+                <Container textAlign='center'>
+                    <Card centered color='red'>
+                        <Card.Header>
+                            <h1>How Well Do You Know Geography?</h1>
+                        </Card.Header>
+                        <div>{this.displayContent()}</div>
+                        <div className="card-footer inverted text-muted"></div>
+                    </Card>
+                    <div>
+                        <Button compact color='red' onClick={this.replayGame}>Restart Game</Button>
+                    </div>
+                </Container>
             </div>
             
         )
     }
-}
+};
 export default MyQuiz;
  
